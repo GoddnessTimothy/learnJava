@@ -1,31 +1,48 @@
-public class Demo {
-    //psvm
-    public static void main(String[] args) {
-//        Player tim = new Player();
-//        tim.setHandleName("Tim");
-//        System.out.println(tim.getHandleName());
+import java.util.ArrayList;
 
+public class Demo {
+//  psvm
+    public static void main(String[] args) {
         Player tim = new Player();
-        tim.setHandleName("timmy");
-        tim.setLevel(5);
-        tim.setLives(15);
+        System.out.println(tim.getHandleName());
+//      sout
+        System.out.println(tim.getHandleName());
         System.out.println("Level: " + tim.getLevel());
         System.out.println("Lives: " + tim.getLives());
-        System.out.println("Handle: " + tim.getHandleName());
+//      System.out.println(tim.getWeapon().getName());
 
-        Player mousey = new Player("mousey");
-        mousey.setLives(2);
-        mousey.setLevel(9);
-        System.out.println("Level: " + mousey.getLevel());
-        System.out.println("Lives: " + mousey.getLives());
-        System.out.println("Handle: " + mousey.getHandleName());
+        Loot redPotion = new Loot("Green Potion", LootType.POTION, 7);
+        Loot chestArmor = new Loot("Chest Armor", LootType.ARMOR, 70);
 
-        Player razore = new Player("razore", 3);
+        tim.pickUpLoot(redPotion);
+        tim.pickUpLoot(chestArmor);
+        tim.pickUpLoot(new Loot("Invisibility Potion", LootType.POTION, 10));
+        tim.showInventory();
 
-        System.out.println("Level: " + razore.getLevel());
-        System.out.println("Lives: " + razore.getLives());
-        System.out.println("Handle: " + razore.getHandleName());
+        Loot bluePotion = new Loot("blue potion",LootType.POTION, 10);
+        boolean wasDropped = tim.dropLoot(redPotion);
+        System.out.println(wasDropped);
+        tim.showInventory();
 
+        System.out.println("|===========================================================|");
+//        Enemy enemy = new Enemy("minion", 5, 1);
+//        enemy.showInfo();
+//        enemy.takeDamage(3);
+//        enemy.showInfo();
 
+//        Troll uglyTroll = new Troll("ugly troll");
+//        uglyTroll.takeDamage(30);
+//        uglyTroll.showInfo();
+//
+//        Vampire vlad = new Vampire("vlad");
+//        vlad.takeDamage(12);
+//        vlad.showInfo();
+//        System.out.println("|===========================================================|");
+
+        VampireKing vladmire = new VampireKing("vladmire");
+        vladmire.showInfo();
+        vladmire.takeDamage(100);
+        vladmire.showInfo();
     }
+
 }
